@@ -4,24 +4,12 @@ import "./App.css";
 
 function App() {
   const data = (window as any).Telegram.WebApp.initData;
-  console.log(data);
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const platform = (window as any).Telegram.WebApp.platform;
+
+  return platform === "tdesktop" ? (
+    <div className="App">This is telegram desktop</div>
+  ) : (
+    <div className="App">This is telegram mobile</div>
   );
 }
 
